@@ -12,8 +12,8 @@ const Search = (props: ISearch) => {
 	return (
 		<>
 			<form onSubmit={submitSearch}>
-				<input ref={searchRef} type="text" name="search" placeholder="Search recipe"></input>
-				<button type="submit">Search</button>
+				<input data-testid="search-input" ref={searchRef} type="text" name="search" placeholder="Search recipes"></input>
+				<button type="submit" data-testid="search-btn">Search</button>
 			</form>
 		</>
 	);
