@@ -11,7 +11,6 @@ const App = () => {
   const [recipes, setRecipes] = useState<IRecipes[]>([]);
   const [query, setQuery] = useState<any>('');
 
-
   useEffect(() => {
     getRecipes();
     //  To get rid of annoying warning since getRecipes is used only in useEffect
@@ -29,9 +28,6 @@ const App = () => {
     }
   }
 
-
-
-
   return (
     <HelmetProvider>
       <div className="App">
@@ -43,14 +39,13 @@ const App = () => {
         <header>
           <Search setQuery={setQuery} />
         </header>
-        <div>
+        <div className="container">
           {
             recipes.map(recipe => {
               return <Recipe key={recipe.idMeal} {...recipe} />
             })
           }
         </div>
-
       </div>
     </HelmetProvider>
 

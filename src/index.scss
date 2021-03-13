@@ -1,0 +1,16 @@
+@import './variables.scss';
+
+* { 
+	box-sizing: border-box; 
+	margin: 0; 
+	padding: 0;
+}
+
+input:focus, button:focus{
+    outline: none;
+}
+
+input::placeholder{
+	color: $color-white;
+	font-size: 0.8rem;
+}

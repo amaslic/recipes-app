@@ -1,0 +1,50 @@
+@import '../variables.scss';
+
+.container {
+	.recipe-box {
+		width: 240px;
+		margin: 1rem;
+		background-color: $bg-yellow-dark;
+		border-radius: $border-radius;
+		overflow: hidden;
+		color: $color-white;
+		position: relative;
+		.title {
+			font-size: 1.5rem;
+			font-weight: 600px;
+		}
+		img {
+			max-width: 100%;
+		}
+		.recipe-info {
+			padding: 1rem;
+		}
+		&:hover {
+			.recipe-over {
+				transform: translateX(0%);
+			}
+		}
+		.recipe-over {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			background-color: $color-white;
+			color: $color-yellow;
+			padding: 1rem;
+			transform: translateX(102%);
+			transition: transform 0.5s ease-in-out;
+			overflow: auto;
+			max-height: 100%;
+			border-radius: $border-radius;
+			display: flex;
+			flex-direction: column;
+			place-items: flex-end;
+			span {
+				font-size: 0.8rem;
+				font-style: italic;
+			}
+		}
+	}
+}
+

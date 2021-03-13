@@ -12,7 +12,7 @@ const Search = (props: ISearch) => {
 	return (
 		<>
 			<form onSubmit={submitSearch}>
-				<input ref={searchRef} type="text" name="search"></input>
+				<input ref={searchRef} type="text" name="search" placeholder="Search recipe"></input>
 				<button type="submit">Search</button>
 			</form>
 		</>
