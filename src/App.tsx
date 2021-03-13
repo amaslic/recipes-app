@@ -1,14 +1,15 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.scss';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import IRecipes from './interface/recipes';
 import Recipe from './components/recipe';
+import Search from './components/search';
+
 
 const App = () => {
 
   const [recipes, setRecipes] = useState<IRecipes[]>([]);
   const [query, setQuery] = useState<any>('');
-  const searchRef = useRef<HTMLInputElement>(null);
 
 
   useEffect(() => {
@@ -28,10 +29,7 @@ const App = () => {
     }
   }
 
-  const submitSearch = (e: React.FormEvent<any>) => {
-    e.preventDefault();
-    setQuery(searchRef.current!.value);
-  }
+
 
 
   return (
@@ -43,10 +41,7 @@ const App = () => {
           <meta name="keywords" content="React, Typescript, Recipe, Recipes, Chicken, Pizza, Pasta"></meta>
         </Helmet>
         <header>
-          <form onSubmit={submitSearch}>
-            <input ref={searchRef} type="text" name="search"></input>
-            <button type="submit">Search</button>
-          </form>
+          <Search setQuery={setQuery} />
         </header>
         <div>
           {
