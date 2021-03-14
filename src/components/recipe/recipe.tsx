@@ -5,7 +5,7 @@ import IRecipes from '../../interface/recipes';
 const Recipe = (props: IRecipes) => {
 
 	return (
-		<div className="recipe-box">
+		<div className="recipe-box" data-testid="recipe-cmp">
 
 			<img src={props.strMealThumb} alt={props.strMeal} loading="lazy" />
 			<div className="recipe-info">

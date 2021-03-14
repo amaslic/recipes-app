@@ -4,11 +4,11 @@ import React from 'react';
 
 describe('App components', () => {
 
-
-	it('Check if Home is rendered in APP', () => {
+	it('Check if Home and APP is rendered correctly', () => {
 		const { getByTestId } = render(<App />);
+
+		expect(getByTestId('app-cmp')).toBeInTheDocument();
 		expect(getByTestId('home-cmp')).toBeInTheDocument();
 	});
-
 
 });

@@ -20,7 +20,7 @@ const Home = () => {
 
 		try {
 			const data = await api(query);
-			console.log(data);
+
 			if (data.meals) {
 				setRecipes(data.meals);
 			}

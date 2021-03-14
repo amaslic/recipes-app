@@ -7,10 +7,10 @@ import Recipe from "../recipe/recipe";
 describe('Mock API call', () => {
 
 	const recipe: IRecipes = {
-		idMeal: "52795",
+		idMeal: "1",
 		strInstructions: 'dummy instructions',
 		strMeal: "Chicken Handi",
-		strMealThumb: "https://www.themealdb.com/images/media/meals/wyxwsp1486979827.jpg"
+		strMealThumb: "dummyUrl"
 	};
 
 	beforeEach(() => {
@@ -27,11 +27,15 @@ describe('Mock API call', () => {
 		});
 	});
 
+	it('check if recipe rendered', () => {
+		const { getByTestId } = render(<Recipe {...recipe} />);
+		expect(getByTestId('recipe-cmp')).toBeInTheDocument();
+	});
+
 	it('Fake api call and check for data', async () => {
 		const res = await api('');
 
 		expect(res.meals).toBe(recipe);
-
 	});
 
 	it('Check for data in Recipe component', async () => {
