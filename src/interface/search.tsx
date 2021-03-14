@@ -1,3 +1,5 @@
 export default interface ISearch {
-	setQuery: (data: string) => void;
+	query: string,
+	setQuery: (data: string) => void,
+	getRecipes: () => void
 }

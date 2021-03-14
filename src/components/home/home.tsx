@@ -14,7 +14,7 @@ const Home = () => {
 		getRecipes();
 		//  To get rid of annoying warning since getRecipes is used only in useEffect
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [query]);
+	}, []);
 
 	const getRecipes = async () => {
 
@@ -35,7 +35,7 @@ const Home = () => {
 		<>
 			<div data-testid="home-cmp" >
 				<header>
-					<Search setQuery={setQuery} />
+					<Search getRecipes={getRecipes} setQuery={setQuery} query={query} />
 				</header>
 				<div className="container" data-testid="recipes-cnt">
 					{
