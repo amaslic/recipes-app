@@ -32,20 +32,21 @@ const Home = () => {
 
 
 	return (
-		<div data-testid="home-cmp" >
-			<header>
-				<Search setQuery={setQuery} />
-			</header>
-			<div className="container" data-testid="recipes-cnt">
-				{
-					recipes.map(recipe => {
-						return <Recipe key={recipe.idMeal} {...recipe} />
-					})
-				}
+		<>
+			<div data-testid="home-cmp" >
+				<header>
+					<Search setQuery={setQuery} />
+				</header>
+				<div className="container" data-testid="recipes-cnt">
+					{
+						recipes.map(recipe => {
+							return <Recipe key={recipe.idMeal} {...recipe} />
+						})
+					}
+				</div>
+
 			</div>
-
-		</div>
-
+		</>
 	);
 }
 

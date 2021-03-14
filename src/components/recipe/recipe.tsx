@@ -5,6 +5,7 @@ import IRecipes from '../../interface/recipes';
 const Recipe = (props: IRecipes) => {
 
 	return (
+		<>
 		<div className="recipe-box" data-testid="recipe-cmp">
 
 			<img src={props.strMealThumb} alt={props.strMeal} loading="lazy" />
@@ -18,7 +19,8 @@ const Recipe = (props: IRecipes) => {
 					{props.strInstructions}
 				</span>
 			</div>
-		</div>
+			</div>
+		</>
 	);
 }
 
