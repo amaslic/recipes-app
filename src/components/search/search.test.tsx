@@ -2,7 +2,7 @@ import { render, fireEvent } from '@testing-library/react';
 import Search from './search';
 
 describe('Search component', () => {
-	const { getByTestId } = render(<Search setQuery={() => ''} />);
+	const { getByTestId } = render(<Search getRecipes={() => []} query={''} setQuery={() => ''} />);
 	const search = getByTestId('search-input');
 	const searchBtn = getByTestId('search-btn');
 
