@@ -1,31 +1,45 @@
-import { render, waitFor } from "@testing-library/react";
-import nock from 'nock';
+import { render } from "@testing-library/react";
 import React from "react";
-import Home from "./home";
+import IRecipes from "../../interface/recipes";
+import { api } from "../../services/api";
+import Recipe from "../recipe/recipe";
 
-describe('App components', () => {
+describe('Mock API call', () => {
 
-	const recipe = {
+	const recipe: IRecipes = {
 		idMeal: "52795",
+		strInstructions: 'dummy instructions',
 		strMeal: "Chicken Handi",
 		strMealThumb: "https://www.themealdb.com/images/media/meals/wyxwsp1486979827.jpg"
 	};
 
-	afterAll(() => {
-		nock.restore();
-	});
-	afterEach(() => {
-		nock.cleanAll();
+	beforeEach(() => {
+		global.fetch = jest.fn().mockImplementation(() => {
+			const p = new Promise(resolve => {
+				resolve({
+					json: () => {
+						return ({ meals: recipe });
+					}
+				})
+			})
+			return p;
+
+		});
 	});
 
 	it('Fake api call and check for data', async () => {
-		const { queryByText } = render(<Home />);
+		const res = await api('');
 
-		const server = nock('https://www.themealdb.com/api/json/v1/1/').get('search.php?s=').reply(200, {
-			meals: { recipe }
-		});
+		expect(res.meals).toBe(recipe);
 
+	});
 
+	it('Check for data in Recipe component', async () => {
+		const { queryByText } = render(<Recipe {...recipe} />);
+
+		const res = await api('');
+
+		expect(queryByText(recipe.strMeal)).toHaveTextContent(res.meals.strMeal);
 	});
 
 

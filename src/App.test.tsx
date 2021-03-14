@@ -1,11 +1,11 @@
 import App from './App';
-import { render, within } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import React from 'react';
 
 describe('App components', () => {
 
 
-	it('Check if Home is rendered', () => {
+	it('Check if Home is rendered in APP', () => {
 		const { getByTestId } = render(<App />);
 		expect(getByTestId('home-cmp')).toBeInTheDocument();
 	});
