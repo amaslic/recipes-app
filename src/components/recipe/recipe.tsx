@@ -1,9 +1,9 @@
 import React from 'react';
 import './recipes.scss'
-import IRecipes from '../interface/recipes';
+import IRecipes from '../../interface/recipes';
 
 const Recipe = (props: IRecipes) => {
-	
+
 	return (
 		<div className="recipe-box">
 

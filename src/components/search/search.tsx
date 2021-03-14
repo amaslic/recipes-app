@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import ISearch from '../interface/search';
+import ISearch from '../../interface/search';
 
 const Search = (props: ISearch) => {
 
